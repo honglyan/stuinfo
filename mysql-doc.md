@@ -47,6 +47,9 @@ sudo tasksel
 ##### 4. workbench 安装
 >sudo apt-get install mysql-workbench
 
+workbench 使用  
+>mysql-workbench
+
 ## MySQL数据库的使用
 1. 创建数据库  
 >注意：创建数据库之前要先连接Mysql服务器  
