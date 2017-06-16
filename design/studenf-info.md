@@ -42,14 +42,14 @@ create table school(
 --------|--------|--------|--------|--------|--------|
 课程号 |  cno | varchar(10) | √ |  ||
 课程名称 | cname | varchar(10) | |  |不为空 |
-课程成绩 | cirdet | double(1,1) |  | 0.0 | 不能为空，默认值为0.0，只能为0.0-10.0之间的一位小数|
+课程成绩 | cirdet | double(2,1) |  | 0.0 | 不能为空，默认值为0.0，只能为0.0-10.0之间的一位小数|
 
 代码如下：
 ```sql
 create table class(
   cno varchar(10) primary key,
   cname varchar(10)not null,
-  cirdet double(1,1) not null default 0.0 check(cirdet>=0 and cirdet<10) 
+  cirdet double(2,1) not null default 0.0 check(cirdet>=0 and cirdet<10) 
 )DEFAULT CHARSET=utf8;
 ```
 
@@ -83,14 +83,14 @@ create table information(
 学生 |
 学生学号 | sname | varchar(10) | √|  |不为空，外键，来自information|
 课程号 | sdept | varchar(10) | √ |  |不为空 ，外键，来自class|
-成绩 | smajor |varchar(10) |  |  |  默认值为0.0，值为0到100之间|
+成绩 | smajor |double(4,1) |  |  |  默认值为0.0，值为0到100之间|
 
 代码如下：
 ```sql
 create table score(
   sno int(4),
   cno varchar(10),
-  cgrade double(3,2) default 0 check(cgrade>=0 and cgrade<=100),
+  cgrade double(4,1) default 0 check(cgrade>=0 and cgrade<=100),
   foreign key(sno) references information(sno),
   foreign key(cno) references class(cno),
   primary key(sno,cno)
