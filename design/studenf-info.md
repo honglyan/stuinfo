@@ -83,14 +83,14 @@ create table information(
 学生 |
 学生学号 | sname | varchar(10) | √|  |不为空，外键，来自information|
 课程号 | sdept | varchar(10) | √ |  |不为空 ，外键，来自class|
-成绩 | smajor |varchar(10) |  |  |  默认值为0.0|
+成绩 | smajor |varchar(10) |  |  |  默认值为0.0，值为0到100之间|
 
 代码如下：
 ```sql
 create table score(
   sno int(4),
   cno varchar(10),
-  cgrade double(3,2) default 0,
+  cgrade double(3,2) default 0 check(cgrade>=0 and cgrade<=100),
   foreign key(sno) references information(sno),
   foreign key(cno) references class(cno),
   primary key(sno,cno)
