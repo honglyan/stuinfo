@@ -68,13 +68,29 @@ Initialized empty Git repository in /home/user/html/.git/
 * 删除分支,但是不能删除现在所在的分支，必须先切换到其他分支上。
 >git branch -D branch_name   
 * 合并分支，合并分支之前先切换到需要合并到的分支上去，如b分支要合并到master上去
-> git checkout master 
+> git checkout master   
 > git merge b
 * 衍合分支
 >  git rebase master b
 
-### 4. git与github的连接
+### 4. git与github的连接  
+1. 首先在github上创建一个仓库，如下图所示，提交后就创建完成了。
+![](./pic/ubuntu/github01.png)
+![](./pic/ubuntu/github02.png)
 
+2. 获得其地址。
+![](./pic/ubuntu/github03.png)  
 
+3. 在linux命令行里面里连接服务器。  
+> git remote add origin 仓库地址  
+
+4. 推送分支给服务器，如果不写分支名，默认为当前所在分支。
+
+5.从服务器到本地下载到本地。
+第一次的时候为：  
+> git clone 仓库地址
+> git pull origin 分支名
+接下来就可以直接：  
+> git pull
 
 
