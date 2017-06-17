@@ -85,11 +85,13 @@ Initialized empty Git repository in /home/user/html/.git/
 > git remote add origin 仓库地址  
 
 4. 推送分支给服务器，如果不写分支名，默认为当前所在分支。
+>git push origin 分支名
 
 5.从服务器到本地下载到本地。
 第一次的时候为：  
-> git clone 仓库地址
-> git pull origin 分支名
+> git clone 仓库地址   
+> git pull origin 分支名  
+
 接下来就可以直接：  
 > git pull
 
