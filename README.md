@@ -3,6 +3,7 @@
 * [liunx系统下vim的安装及基本使用](skill/vim-doc.md) 
 * [liunx系统下git的安装及基本使用](skill/git-doc.md) 
 * [liunx系统下Mysql的安装及基本使用](skill/mysql-doc.md)  
+* [liunx系统下atom的安装及基本使用](skill/atom-doc.md)  
 
 
 ## 基于关系型数据库的课程设计
