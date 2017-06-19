@@ -1,7 +1,7 @@
 ## 技术文档
-* [Ubuntu的安装和使用](skill/ubuntu-doc.md)
-* [vim的安装及基本使用](skill/vim-doc.md) 
-* [git的安装及基本使用](skill/git-doc.md) 
+* [vmware下Ubuntu的安装和使用](skill/ubuntu-doc.md)
+* [liunx系统下vim的安装及基本使用](skill/vim-doc.md) 
+* [liunx系统下git的安装及基本使用](skill/git-doc.md) 
 * [liunx系统下Mysql的安装及基本使用](skill/mysql-doc.md)  
 
 
@@ -11,3 +11,4 @@
 ## 每天计划
 * [2017-6-15](day/20170615.md)  
 * [2017-6-16](day/20170616.md)  
+* [2017-6-19](day/20170619.md)  
