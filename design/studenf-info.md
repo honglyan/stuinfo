@@ -8,27 +8,29 @@
  - [x] ubutun   
  - [x] mysql  
  - [x] c语言  
+ - [x] atom   
 ## 数据库设计  
-本学生信息管理系统一共设计了4个表，分别为： 
+本学生信息管理系统一共设计了5个表，分别为： 
 * 学校表school  
 * 课程表class 
 * 学生信息表information  
 * 成绩表score  
+* 教师表teacher
 
 ### 1.学校表school的设计。 
 
 中文名称 | 属性名称 | 字段类型 | 主键 | 默认值 | 其他   
 --------|--------|--------|--------|--------|--------|
-学校代号 |  sid | int(4) | √ |   |   自动增加|
+学校代号 |  sid | int(4） | √ |   |   自动增加|
 学校名称 | sname | varchar(10) | |  |不为空 |
 系   名 | sdept | varchar(10) |  |  |不为空 |
 专   业 | smajor |varchar(10) |  |  |  不为空|
-班   级 |sclass | varchar(10) |  |  | 不为空| 
+班   级 |sclass | varchar(8) |  |  | 不为空| 
 
 代码如下：
 ```sql
 create table school(
-  sid int(4) primary key auto_increment check(sid>0) ,
+  sid int(4) primary key auto_increment ,
   sname varchar(10) not null,
   sdept varchar(10) not null,
   smajor varchar(10) not null,
@@ -58,20 +60,22 @@ create table class(
 
 中文名称 | 属性名称 | 字段类型 | 主键 | 默认值 | 其他   
 --------|--------|--------|--------|--------|--------|
-学生学号 |  sno | int(4) | √ |   |   大于0|
+学生学号 |  sno | char(12) | √ |   |   大于0|
 学生姓名 | name | varchar(8) | |  |不为空 |
-性别 | sex | char(1) |  |  |只能是男或女|
+性别 | sex | char(4) |  |  |只能是男或女|
 出生日期 | birthday |date |  | 默认值为1990-1-1 |  不为空|
-学校代号 |sid | int（4） |  |  | 外键，来自school表| 
+学校代号 |sid | int（4） |  |  | 外键，来自school表| 
+删除标记|sel | int |  |  | 默认值为'0'| 
 
 代码如下：
 ```sql
 create table information(
-  sno int(4) primary key check(sno>0),
+  sno char(12) primary key check(sno>0),
   name varchar(8) not null,
-  sex char(1)not null check(sex in('男','女')),
-  birthday date default"1990-1-1",
+  sex char(4)not null check(sex in('男','女')),
+  birthday date default '1990-1-1',
   sid int(4),
+  sel int default '0',
   foreign key(sid) references school(sid)
 )DEFAULT CHARSET=utf8;
 ```
@@ -81,18 +85,34 @@ create table information(
 中文名称 | 属性名称 | 字段类型 | 主键 | 默认值 | 其他   
 --------|--------|--------|--------|--------|--------|
 学生 |
-学生学号 | sname | varchar(10) | √|  |不为空，外键，来自information|
+学生学号 | sname | char(12) | √|  |不为空，外键，来自information|
 课程号 | sdept | varchar(10) | √ |  |不为空 ，外键，来自class|
 成绩 | smajor |double(4,1) |  |  |  默认值为0.0，值为0到100之间|
 
 代码如下：
 ```sql
 create table score(
-  sno int(4),
+  sno char(12),
   cno varchar(10),
   cgrade double(4,1) default 0 check(cgrade>=0 and cgrade<=100),
   foreign key(sno) references information(sno),
   foreign key(cno) references class(cno),
   primary key(sno,cno)
+)DEFAULT CHARSET=utf8;
+```
+
+
+### 5.教师表teacher的设计。 
+
+中文名称 | 属性名称 | 字段类型 | 主键 | 默认值 | 其他   
+--------|--------|--------|--------|--------|--------|
+顺序号 | id |int | |  ||
+教师号 | tno | char(12) | √|  ||
+
+代码如下：
+```sql
+create table teacher(
+  id int primary key,
+  tno char(12)
 )DEFAULT CHARSET=utf8;
 ```
