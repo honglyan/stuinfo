@@ -116,3 +116,8 @@ create table teacher(
   tno char(12)
 )DEFAULT CHARSET=utf8;
 ```
+
+### 6.创建视图。 
+在本设计中我创建两个视图用于查询：
+1. 一个是stuinfo，用于存储选课了的学生的所有信息
+2. 一个是stuall，用于存储学生的所有信息。
