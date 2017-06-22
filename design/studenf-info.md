@@ -119,5 +119,17 @@ create table teacher(
 
 ### 6.创建视图。 
 在本设计中我创建两个视图用于查询：
-1. 一个是stuinfo，用于存储选课了的学生的所有信息
+1. 一个是stuinfo，用于存储选课了的学生的所有信息.
+```sql
+create view stuinfo as
+select information.sno,name, sex,birthday,school.sid,sname,sdept,smajor,sclass,class.cno,cname,cirdet,cgrade
+from information,school,score,class
+where information.sno=score.sno and information.sid=school.sid and class.cno=score.cno
+```
 2. 一个是stuall，用于存储学生的所有信息。
+```sql
+create view stuall as
+select information.sno,name, sex,birthday,school.sid,sname,sdept,smajor,sclass
+from information,school
+where information.sid=school.sid
+```
