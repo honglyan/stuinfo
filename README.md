@@ -1,6 +1,6 @@
 ## 技术文档
 * [vmware下Ubuntu的安装和使用](skill/ubuntu-doc.md)
-* [vmware下安装VMware Tools](skill/VMware Tools-doc.md)
+* [vmware下安装VMware Tools](skill/VMwareTools-doc.md)
 * [liunx系统下vim的安装及基本使用](skill/vim-doc.md) 
 * [liunx系统下git的安装及基本使用](skill/git-doc.md) 
 * [liunx系统下Mysql的安装及基本使用](skill/mysql-doc.md)  
